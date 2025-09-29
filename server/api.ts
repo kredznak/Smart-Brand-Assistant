@@ -16,6 +16,17 @@ app.use(express.json({ limit: '2mb' }));
 
 app.get('/api/health', (_req: Request, res: Response) => res.json({ ok: true }));
 
+// Ephemeral in-memory store for demo persistence
+let lastKitJson: unknown | null = null;
+app.post('/api/brandkit', (req: Request, res: Response) => {
+  lastKitJson = req.body;
+  res.json({ ok: true });
+});
+app.get('/api/brandkit', (_req: Request, res: Response) => {
+  if (!lastKitJson) return res.status(404).json({ error: 'not found' });
+  res.json(lastKitJson);
+});
+
 app.get('/api/hints', async (req: Request, res: Response) => {
   const url = String(req.query.url || '');
   if (!url) return res.status(400).json({ error: 'url required' });
