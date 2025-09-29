@@ -1,0 +1,2 @@
+async function n(e,t){console.log("Applying Brand Kit to document",e),await new Promise(o=>setTimeout(o,300))}window.addEventListener("message",async e=>{const t=e.data;if(!(!t||typeof t!="object")&&t.type==="SBA_APPLY_BRAND_KIT"){const o=t.payload;try{await n(o,{targets:"all"}),window.parent.postMessage({type:"SBA_APPLY_DONE",correlationId:t.correlationId},"*")}catch(a){console.error(a),window.parent.postMessage({type:"SBA_APPLY_ERROR",error:a.message,correlationId:t.correlationId},"*")}}});
+//# sourceMappingURL=document.js.map

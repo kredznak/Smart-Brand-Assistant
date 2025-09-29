@@ -1,0 +1,47 @@
+{
+  "name": "smart-brand-assistant",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -k -s first \"vite --open\" \"ts-node --esm server/api.ts\"",
+    "server": "ts-node --esm server/api.ts",
+    "build": "vite build && tsc -p tsconfig.server.json",
+    "preview": "vite preview",
+    "lint": "eslint \"src/**/*.{ts,tsx}\" \"server/**/*.ts\"",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "test:ui": "vitest",
+    "e2e": "playwright test",
+    "analyze:demo": "cross-env MOCK_MODE=1 vite --open"
+  },
+  "dependencies": {
+    "cookie": "^0.6.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "helmet": "^7.1.0",
+    "node-fetch": "^3.3.2",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.47.2",
+    "@types/cookie": "^0.6.0",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.5.4",
+    "@typescript-eslint/eslint-plugin": "^8.8.0",
+    "@typescript-eslint/parser": "^8.8.0",
+    "concurrently": "^9.0.1",
+    "cross-env": "^7.0.3",
+    "eslint": "^9.12.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.30.0",
+    "playwright": "^1.47.2",
+    "prettier": "^3.3.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.2",
+    "vite": "^5.4.8",
+    "vitest": "^2.1.3"
+  }
+}
