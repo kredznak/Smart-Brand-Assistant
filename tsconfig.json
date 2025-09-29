@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "useDefineForClassFields": true,
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    "noFallthroughCasesInSwitch": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "jsx": "react-jsx",
+    "baseUrl": ".",
+    "paths": {
+      "@ui/*": ["src/ui/*"],
+      "@sdk/*": ["src/sdk/*"],
+      "@editor/*": ["src/editor/*"],
+      "@analysis/*": ["src/analysis/*"],
+      "@adapters/*": ["src/adapters/*"],
+      "@a11y/*": ["src/accessibility/*"],
+      "@state/*": ["src/state/*"]
+    },
+    "outDir": "dist"
+  },
+  "include": ["src", "server", "tests", "vite.config.ts"],
+  "exclude": ["node_modules", "dist"]
+}
+
